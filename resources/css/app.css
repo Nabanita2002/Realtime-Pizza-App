@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 
-body{
+/* body{
     height: 4000px;
-}
+} */
 
 nav li #last{
     background-color: orange;
@@ -49,4 +49,208 @@ section.hero{
     border-color: white;
     color: white;
 }
+
+.add-to-cart:focus{
+    background:rgb(153, 142, 122);
+    outline:none;
+    color: whitesmoke;
+}
+
+.btn-primary{
+    background: orange;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-primary:hover{
+    background-color: rgb(137, 103, 39);
+}
+
+
+.cart{
+    background-color: whitesmoke;
+}
+
+.width{
+    width: 15%;
+}
+
+.order{
+    width: 50%;
+}
+
+.txt{
+    text-align: right;
+    padding: 4px;
+}
+
+.amount{
+    color: orange;
+}
+
+.input1{
+    border: 1px solid gray;
+    padding: 3px;
+}
+
+.form{
+    margin-top: 2.5rem;
+}
+
+.flex-1{
+    flex: 1 1 0%;
+}
+
+.my-8{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn{
+    margin-top: 1.5rem;
+}
+
+
+
+.border{
+    border: 2px solid gray;
+}
+
+.login-div{
+    margin-top:4rem;
+    /* justify-content: center; */
+}
+
+.email{
+    margin-top: 3rem;
+}
+
+/* main-div{
+    justify-content: center;
+} */
+
+.sign-in-text{
+    text-align: center;
+}
+
+.register{
+    background: whitesmoke;
+    min-height: 100vh;
+}
+
+.login{
+    background: whitesmoke;
+    min-height: 100vh;
+}
+
+
+
+.login-button{
+    background: orange;
+}
+
+.login-button:hover{
+    background: rgb(247, 201, 116);
+    transition: 0.2s ease-in-out;
+}
+
+.forgot-pwd{
+    color: orange;
+}
+
+.forgot-pwd:hover{
+    color: rgb(252, 207, 125);
+}
+
+.register-button{
+    background: orange;
+    
+} 
+
+.register-button:hover{
+    background:rgb(121, 97, 51) ;
+    transition: 0.2s ease-in-out;
+}
+.p{
+    color: antiquewhite;
+}
+
+.register-anchor{
+    color: orange;
+    margin-left: 10.5rem;
+    
+}
+
+.register-anchor:hover{
+    color: rgb(245, 204, 127);
+}
+
+.login-anchor{
+    color: orange;
+    margin-left: 10.3rem;
+    
+}
+
+.login-anchor:hover{
+    color: rgb(245, 204, 127);
+}
+
+.outline1:focus-visible{
+    outline-color: orangered;
+    outline-style: solid;
+}
+
+.go-back-btn{
+    background: orange;
+    margin-top: 3rem;
+}
+
+.go-back-btn:hover{
+    background:rgb(125, 99, 49);
+    transition: 0.2s ease-in-out;
+}
+
+.w{
+    height: 20rem;
+    width: 25rem;
+
+    margin-top: 1rem;
+}
+
+.cart-empty{
+    color: gray;
+    margin-top: 1rem;
+}
+
+.empty-cart{
+    background: whitesmoke;
+    min-height: 100vh;
+}
+
+.empty-cart-h1{
+    margin: 2rem;
+}
+
+/* .order{
+    background: whitesmoke;
+   
+} */
+
+.pizza-list{
+    margin: 2rem;
+    
+}
+
+/* #last1{
+   padding-left: 4rem;
+} */
+
+#cartCounter{
+   padding-right: 2rem;
+   padding-bottom: 1rem;
+   justify-items: center;
+   padding-right: 0.3rem;
+   
+}
+
+
 
