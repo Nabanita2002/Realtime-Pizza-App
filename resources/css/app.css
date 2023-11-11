@@ -252,5 +252,211 @@ section.hero{
    
 }
 
+.login-to-continue{
+    display: flex;
+    width: 12rem;
+    justify-content: center;
+   margin-top: 5rem;
+   margin-left: 12rem;
+}
+
+#success-alert{
+    background: rgb(104, 170, 104);
+    height: 3rem;
+    width: 60rem;
+    
+}
+
+a.link{
+    color: orange;
+}
+
+
+.welcome-text{
+    color: rgb(185, 158, 108);
+    font-style:normal;
+}
+
+/* .welcome-container{
+   max-width: 100%;
+} */
+
+.welcome-msg{
+display: inline-block;
+ max-width: 60%;
+}
+
+.pizza-slice{
+    max-width: 85%;
+}
+
+
+.home-footer{
+    background-color: rgb(152, 148, 148);
+    height: 50vh;
+    width: auto;
+}
+
+.list1{
+    margin-left: 12rem;
+}
+
+.footer-items{
+    margin-left: 10rem;
+}
+
+.l1{
+    color: rgb(250, 246, 246);
+    font-weight: 600;
+}
+
+.copyright{
+    background-color: rgb(90, 87, 87);
+    height: 10vh;
+    
+}
+
+.u1{
+    list-style-type: none;
+    margin-top: 2rem;
+}
+
+
+.status{
+    min-height: 100vh;
+}
+
+.status-box{
+    padding: 2rem;
+}
+
+.status-box ul li span{
+    position: relative;
+}
+
+.status-box ul li span::after{
+    content: '';
+    position: absolute;
+
+    left:-10px;
+    top:40%;
+    background: rgb(91, 90, 90) ;
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translate(-60%);
+    box-shadow: 0 0 1px 5px ;
+    color: rgb(162, 161, 161);
+
+}
+
+/* icons
+ */
+
+
+.status-box ul li span::before{
+     
+     font-family: "Line Awesome Free";
+
+     font-size: 2rem;
+     font-weight: 600;
+     position: absolute;
+     left: -80px ;
+     top: 20%;
+     transform: translate(-50%);
+     color: inherit;
+
+}
+
+
+
+.status-box ul li:nth-child(1) span:before{
+    content: '\f46c';
+}
+
+.status-box ul li:nth-child(2) span:before{
+    content: '\f560';
+}
+
+
+.status-box ul li:nth-child(3) span:before{
+    content: '\f818';
+}
+
+.status-box ul li:nth-child(4) span:before{
+    content: '\f0d1';
+}
+
+.status-box ul li:nth-child(5) span:before{
+    content: '\f582';
+}
+
+.status-box ul{
+    margin-left: 6rem;
+}
+
+.status-box ul li{
+    position: relative;
+}
+
+.status-box ul li::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 2px;
+    height: 100%;
+    background: rgb(30, 29, 29);
+
+    margin-top: 10px;
+}
+
+.status-box ul li:nth-child(5) span::after{
+    box-shadow: 0 0 1px 5px  ;
+}
+
+
+/* line  */
+.status-box ul li.step-completed:before{
+      background: rgb(212, 211, 211);
+}
+
+/* dots */
+
+.status-box ul li.step-completed span:after{
+    background: rgb(212, 211, 211);
+}
+
+/* text  */
+
+.status-box ul li.step-completed span{
+    color: rgb(212, 211, 211);
+
+
+}
+
+/* current status  */
+
+.status-box ul li.current span{
+    color: orangered;
+}
+
+.status-box ul li.current span::after{
+    background: orangered;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

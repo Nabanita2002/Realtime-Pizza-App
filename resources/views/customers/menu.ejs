@@ -1,0 +1,24 @@
+<section class="menu container mx-auto py-8">
+          
+    <h1 class="font-medium px-3">Pick Your Favourite(s)</h1>
+    <div  class="grid grid-cols-4 row-gap-16 col-gap-12">
+
+       <% pizzas.forEach(function(pizza){ %>
+
+       <div class="w-64">
+           <img  class="h-40 mb-3 mx-auto px-1 py-1 mt-2" src="/img/<%=pizza.image %>" alt="">
+
+           <div class="text-center">
+               <h2 class="mb-4  font-medium"><%=pizza.name%></h2>
+               <span class=" size font-medium py-1 px-4 rounded-full text-xs uppercase "><%=pizza.size%></span>
+
+               <div class="flex items-center justify-around mt-6">
+                   <span class="px-6 font-bold">₹<%=pizza.price%></span>
+                   <button data-pizza="<%= JSON.stringify(pizza)  %>" class="py-1 px-5 add-to-cart rounded-full flex items-center">
+                       <span>+</span>
+                       <span class="font-medium ml-3">Add</span>
+                   </button>
+               </div>
+           </div>
+       </div>
+        <% })%>

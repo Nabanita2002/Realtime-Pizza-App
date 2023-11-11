@@ -1,5 +1,7 @@
 require('dotenv').config()
 const express = require('express');
+
+
 const ejs = require('ejs')
 const expresslayout = require('express-ejs-layouts')
 const mongoose = require('mongoose');
@@ -13,7 +15,9 @@ const flash = require('express-flash')
 
 const MongoStore = require('connect-mongo')
 
-const passport=require('passport')
+const passport = require('passport')
+
+const Emitter = require('events')
 
 
 
@@ -22,6 +26,8 @@ const passport=require('passport')
 const path = require('path')
 
 const app = express();
+
+// const io = new Server(server);
 
 const PORT = process.env.PORT || 7000
 const connection = mongoose.connection;
@@ -35,15 +41,23 @@ const mongoClientPromise = new Promise((resolve) => {
 });
 
 
+//event emitter
+
+const eventEmitter = new Emitter()
+
+app.set('eventEmitter', eventEmitter)
+
+
+
 //session config
-MONGO_URI='mongodb://127.0.0.1:27017/Pizza'
+MONGO_URI = 'mongodb://127.0.0.1:27017/Pizza'
 app.use(session({
     secret: '$secret!',
     resave: false,
     store: MongoStore.create({
-        clientPromise:mongoClientPromise,
+        clientPromise: mongoClientPromise,
         dbName: 'Pizza'
-      }),
+    }),
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 } //24 hours
 
@@ -55,7 +69,7 @@ app.use(session({
 
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
-const passportInit= require('./app/config/passport')
+const passportInit = require('./app/config/passport')
 
 passportInit(passport)
 
@@ -80,8 +94,8 @@ app.use(passport.session())
 
 
 
-app.use(flash()); 
- 
+app.use(flash());
+
 
 
 
@@ -89,14 +103,14 @@ app.use(flash());
 
 app.use(express.static('public'))
 
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: false }))
 
 app.use(express.json())
 
 //global middleware
 
-app.use((req,res, next)=>{
-    res.locals.session= req.session
+app.use((req, res, next) => {
+    res.locals.session = req.session
     res.locals.user = req.user
     next()
 })
@@ -118,6 +132,7 @@ require('./routes/web')(app)
 const { stripVTControlCharacters } = require('util');
 const { Session } = require('inspector');
 const { log } = require('console');
+const order = require('./app/models/order');
 
 
 
@@ -134,6 +149,41 @@ async function main() {
 
 
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`listening on port  ${PORT} `);
 })
+
+
+
+
+
+const io = require('socket.io')(server)
+io.on('connection', (socket) => {
+    console.log(socket.id);
+      // Join 
+      socket.on('join', (orderId) => {
+        console.log(orderId);
+        socket.join(orderId)
+      })
+})
+
+eventEmitter.on('orderUpdated',(data)=>{
+    io.to(`order_${data.id}`).emit('orderUpdated',data)
+})
+
+eventEmitter.on('orderPlaced',(data)=>{
+    io.to('adminRoom').emit('orderPlaced',data)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
